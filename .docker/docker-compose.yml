@@ -1,0 +1,12 @@
+version: '3'
+
+services:
+  rabbitmq:
+    image: "rabbitmq:3.9.5-management"
+    container_name: "rabbitmq"
+    ports:
+      - "5672:5672" # Rabbit port
+      - "15672:15672" # Administration port
+    environment:
+      - RABBITMQ_DEFAULT_USER=admin
+      - RABBITMQ_DEFAULT_PASS=secret

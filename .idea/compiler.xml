@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <bytecodeTargetLevel>
+      <module name="com.seniorglez.server" target="17" />
+      <module name="com.seniorglez.server.main" target="17" />
+      <module name="com.seniorglez.server.test" target="17" />
+      <module name="com.seniorglez.worker" target="17" />
+      <module name="com.seniorglez.worker.main" target="17" />
+      <module name="com.seniorglez.worker.test" target="17" />
+      <module name="external-service" target="17" />
+      <module name="external-service.main" target="17" />
+      <module name="external-service.test" target="17" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
