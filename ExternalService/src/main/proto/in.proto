@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package com.seniorglez.externalService.infra.grpc;
+
+service UpperCaseService {
+  rpc ToUpperCase(ToUpperCaseRequest) returns (ToUpperCaseResponse);
+}
+
+message ToUpperCaseRequest {
+  string input_string = 1;
+}
+
+message ToUpperCaseResponse {
+  string uppercased_string = 1;
+}
