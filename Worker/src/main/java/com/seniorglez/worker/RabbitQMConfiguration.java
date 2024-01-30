@@ -7,7 +7,7 @@ import org.springframework.context.annotation.Bean;
 public class RabbitQMConfiguration {
 
     @Bean
-    public Queue hello() {
+    public Queue workerIn() {
         return new Queue("worker_in");
     }
 
