@@ -1,10 +1,11 @@
 package com.seniorglez.externalService.infra.grpc;
 
 import io.grpc.stub.StreamObserver;
-import org.lognet.springboot.grpc.GRpcService;
+import net.devh.boot.grpc.server.service.GrpcService;
 
-@GRpcService
-public class GrpcService extends UpperCaseServiceGrpc.UpperCaseServiceImplBase {
+
+@GrpcService
+public class UpperCaseServiceImpl extends UpperCaseServiceGrpc.UpperCaseServiceImplBase {
 
     @Override
     public void toUpperCase(In.ToUpperCaseRequest request, StreamObserver<In.ToUpperCaseResponse> responseObserver) {
