@@ -8,9 +8,9 @@ import net.devh.boot.grpc.server.service.GrpcService;
 public class UpperCaseServiceImpl extends UpperCaseServiceGrpc.UpperCaseServiceImplBase {
 
     @Override
-    public void toUpperCase(In.ToUpperCaseRequest request, StreamObserver<In.ToUpperCaseResponse> responseObserver) {
+    public void toUpperCase(ExternalService.ToUpperCaseRequest request, StreamObserver<ExternalService.ToUpperCaseResponse> responseObserver) {
         String upercasedString = request.getInputString().toUpperCase();
-        In.ToUpperCaseResponse reply = In.ToUpperCaseResponse
+        ExternalService.ToUpperCaseResponse reply = ExternalService.ToUpperCaseResponse
                 .newBuilder()
                 .setUppercasedString(upercasedString)
                 .build();
