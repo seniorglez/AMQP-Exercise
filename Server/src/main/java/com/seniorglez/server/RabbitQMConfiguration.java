@@ -1,4 +1,4 @@
-package com.seniorglez.server.infra.amqp;
+package com.seniorglez.server;
 
 import org.springframework.amqp.core.Queue;
 import org.springframework.context.annotation.Bean;
@@ -7,8 +7,13 @@ import org.springframework.context.annotation.Bean;
 public class RabbitQMConfiguration {
 
     @Bean
-    public Queue hello() {
+    public Queue serverIn() {
         return new Queue("server_in");
+    }
+
+    @Bean
+    public Queue workerIn() {
+        return new Queue("worker_in");
     }
 
 

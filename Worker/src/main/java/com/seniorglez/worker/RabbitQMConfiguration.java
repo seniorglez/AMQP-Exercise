@@ -1,4 +1,4 @@
-package com.seniorglez.worker.infra.amqp;
+package com.seniorglez.worker;
 
 import org.springframework.amqp.core.Queue;
 import org.springframework.context.annotation.Bean;
