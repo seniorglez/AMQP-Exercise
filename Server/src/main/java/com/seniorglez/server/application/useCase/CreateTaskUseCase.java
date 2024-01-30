@@ -1,7 +1,10 @@
 package com.seniorglez.server.application.useCase;
 
 import com.seniorglez.server.application.annotation.Injectable;
+import com.seniorglez.server.domain.model.Task;
 import com.seniorglez.server.domain.port.WorkerService;
+
+import java.util.UUID;
 
 @Injectable
 public class CreateTaskUseCase {
@@ -13,9 +16,14 @@ public class CreateTaskUseCase {
     }
 
     public CreateTaskOutput execute(CreateTaskInput input) {
-        workerService.sendTask("");
-        return new CreateTaskOutput();
+        Task task = new Task(
+                UUID.randomUUID().toString(),
+                false,
+                0,
+                null
+        );
+        workerService.sendTask(input.getText());
+        return new CreateTaskOutput(task);
     }
-
 
 }

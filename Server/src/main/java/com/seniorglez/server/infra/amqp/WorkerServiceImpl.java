@@ -14,7 +14,7 @@ public class WorkerServiceImpl implements WorkerService {
 
     @Override
     public void sendTask(String msg) {
-        rabbitOut.send();
+        rabbitOut.send(msg);
     }
 
 }
