@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class WebSocketService {
 
-    final String URL = "/path/task";
+    final String URL = "/task";
 
     private final SimpMessagingTemplate messagingTemplate;
 

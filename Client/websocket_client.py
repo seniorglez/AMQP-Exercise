@@ -1,15 +1,21 @@
-import asyncio
-import websockets
+import websocket
+import json
 
-async def connect_to_websocket_server():
-    server_url = "ws://localhost:8080/path/task"
+def on_message(ws, message):
+    print(f"Received message: {message}")
 
-    async with websockets.connect(server_url) as websocket:
-        print("Conexión establecida con éxito")
+def on_open(ws):
+    print("WebSocket connection opened")
+    # Suscribirse al canal específico '/task'
+    subscribe_message = json.dumps({"destination": "/task"})
+    ws.send(subscribe_message)
 
-        while True:
-            message = await websocket.recv()
-            print(f"Mensaje recibido: {message}")
+# URL del servidor WebSocket
+ws_url = "ws://localhost:8080/websocket"  # URL de la conexión WebSocket
 
-if __name__ == "__main__":
-    asyncio.get_event_loop().run_until_complete(connect_to_websocket_server())
+# Crear una instancia del cliente WebSocket
+ws = websocket.WebSocketApp(ws_url, on_message=on_message, on_open=on_open)
+
+# Mantener la conexión WebSocket activa
+ws.run_forever()
+
