@@ -11,5 +11,10 @@ public class RabbitQMConfiguration {
         return new Queue("worker_in");
     }
 
+    @Bean
+    public Queue serverIn() {
+        return new Queue("server_in");
+    }
+
 
 }

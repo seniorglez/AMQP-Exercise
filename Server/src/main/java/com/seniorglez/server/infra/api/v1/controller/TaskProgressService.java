@@ -1,6 +1,7 @@
 package com.seniorglez.server.infra.api.v1.controller;
 
 import com.seniorglez.server.infra.api.v1.view.task.ProgressMessage;
+import com.seniorglez.server.infra.api.v1.view.task.TaskResponse;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.stereotype.Service;
 
@@ -13,8 +14,8 @@ public class TaskProgressService {
         this.messagingTemplate = messagingTemplate;
     }
 
-    public void sendProgressUpdate(Long taskId, ProgressMessage progress) {
+    public void sendProgressUpdate(String taskId, TaskResponse taskResponse) {
         String destination = "/socket/progress/" + taskId;
-        messagingTemplate.convertAndSend(destination, progress);
+        messagingTemplate.convertAndSend(destination, taskResponse);
     }
 }
