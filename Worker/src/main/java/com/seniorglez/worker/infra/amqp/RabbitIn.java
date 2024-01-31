@@ -22,6 +22,16 @@ public class RabbitIn {
     @RabbitListener(queues = "worker_in")
     public void processMessage(String content) {
         String mayus = toMayusUseCase.execute(content);
+        try {
+            Thread.sleep(5000);
+            this.rabbitOut.send(new Task("id", false, 20, null).toJSON());
+            Thread.sleep(5000);
+            this.rabbitOut.send(new Task("id", false, 50, null).toJSON());
+            Thread.sleep(5000);
+            this.rabbitOut.send(new Task("id", false, 70, null).toJSON());
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
+        }
         //TODO: FAKE proges...
         Task finalTask = new Task("id", true, 100, mayus);
         this.rabbitOut.send(finalTask.toJSON());
